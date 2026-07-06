@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moja Dieta</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/857/857681.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Moja Baza Przepisów</h1>
+
+        <!-- FORMULARZ DODAWANIA PRZEPISU -->
+        <section class="form-section">
+            <h2>Dodaj nowy przepis</h2>
+            <form id="recipeForm">
+                <input type="text" id="recipeName" placeholder="Nazwa potrawy (np. Omlet)" required>
+                
+                <select id="recipeCategory" required>
+                    <option value="">-- Wybierz kategorię --</option>
+                    <option value="śniadanie">Śniadanie</option>
+                    <option value="obiad">Obiad</option>
+                    <option value="kolacja">Kolacja</option>
+                    <option value="przekąska">Przekąska</option>
+                </select>
+
+                <textarea id="recipeIngredients" placeholder="Składniki (np. 2 jajka, 50g awokado)" rows="3" required></textarea>
+                <textarea id="recipeDescription" placeholder="Opis przygotowania krok po kroku..." rows="4" required></textarea>
+                
+                <button type="submit">Zapisz przepis</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- LISTA PRZEPISÓW -->
+        <section class="list-section">
+            <h2>Twoje przepisy</h2>
+            <div id="recipesContainer">
+                <!-- Tutaj JavaScript będzie wstrzykiwał nasze przepisy -->
+                <p>Brak przepisów w bazie. Dodaj swój pierwszy przepis powyżej!</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
