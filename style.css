@@ -121,27 +121,56 @@ input:focus, select:focus, textarea:focus {
     color: #4a5568;
 }
 
+/* Zaktualizowany wiersz składnika (teraz przyjmuje formę bloku z wewnętrznym układem) */
 .ingredient-row {
     display: flex;
-    gap: 8px;
+    flex-wrap: wrap;
+    gap: 6px;
     align-items: center;
+    background-color: #f8fafc;
+    border: 1px solid #f1f5f9;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 4px;
 }
 
 .ingredient-row .ing-name {
     flex: 2;
+    min-width: 130px;
+    padding: 8px;
 }
 
 .ingredient-row .ing-weight {
     flex: 1;
+    min-width: 70px;
+    padding: 8px;
+}
+
+/* Kontener na 4 małe inputy makro */
+.makro-inputs {
+    display: flex;
+    gap: 4px;
+    width: 100%;
+    margin-top: 4px;
+}
+
+.makro-inputs input {
+    flex: 1;
+    padding: 6px;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 6px;
+    background-color: #ffffff;
 }
 
 .btn-remove-ing {
     background: none;
     border: none;
     color: #ef4444;
-    font-size: 20px;
+    font-size: 22px;
     cursor: pointer;
-    padding: 0 5px;
+    padding: 0 4px;
+    margin-left: auto;
 }
 
 .btn-add-ing {
@@ -152,6 +181,7 @@ input:focus, select:focus, textarea:focus {
     border-radius: 8px;
     cursor: pointer;
     font-weight: 500;
+    margin-top: 4px;
 }
 
 .btn-submit {
@@ -179,9 +209,17 @@ input:focus, select:focus, textarea:focus {
     padding: 16px;
 }
 
+.recipe-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
 .recipe-card h3 {
     font-size: 18px;
-    margin-bottom: 10px;
+    color: #1a1a1a;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -196,6 +234,49 @@ input:focus, select:focus, textarea:focus {
     text-transform: capitalize;
 }
 
+/* PODSUMOWANIE MAKRO CAŁEGO PRZEPISU (STYL APKI DIETETYCZNEJ) */
+.recipe-total-makro {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    background: #ffffff;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #f1f5f9;
+}
+
+.makro-badge {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8fafc;
+    padding: 6px 4px;
+    border-radius: 6px;
+}
+
+.makro-badge strong {
+    font-size: 13px;
+    color: #1e293b;
+}
+
+.makro-badge span {
+    font-size: 9px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-top: 1px;
+}
+
+/* Szary, delikatny opis makro pojedynczego składnika na liście */
+.makro-detail-label {
+    font-size: 11px;
+    color: #94a3b8;
+    display: inline-block;
+    margin-bottom: 4px;
+    font-weight: normal;
+}
+
 .recipe-card p {
     font-size: 14px;
     line-height: 1.5;
@@ -205,9 +286,13 @@ input:focus, select:focus, textarea:focus {
 
 .recipe-card ul {
     margin-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-size: 14px;
     color: #4a5568;
+}
+
+.recipe-card li {
+    margin-bottom: 6px;
 }
 
 /* KONTENER NA PRZYCISKI W KARCIE */
