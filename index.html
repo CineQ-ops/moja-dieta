@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moja Dieta</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/857/857681.png">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Moja Baza Przepisów</h1>
+
+        <!-- NAWIGACJA (MENU) -->
+        <nav class="app-nav">
+            <button id="navBrowse" class="nav-btn active" onclick="switchView('browse')">Przeglądaj</button>
+            <button id="navAdd" class="nav-btn" onclick="switchView('add')">Dodaj nowy</button>
+        </nav>
+
+        <!-- WIDOK 1: PRZEGLĄDANIE I WYSZUKIWANIE -->
+        <div id="viewBrowse" class="app-view">
+            <section class="search-section">
+                <input type="text" id="searchBar" placeholder="🔍 Wyszukaj przepis lub składnik..." oninput="displayRecipes()">
+            </section>
+
+            <section class="list-section">
+                <h2>Twoje przepisy</h2>
+                <div id="recipesContainer">
+                    <!-- Tutaj JS wstrzykuje przepisy -->
+                </div>
+            </section>
+
+            <!-- SEKCOJA IMPORTU / EKSPORTU -->
+            <div class="backup-actions">
+                <button onclick="exportRecipes()" class="btn-backup">📤 Eksportuj przepisy</button>
+                <button onclick="triggerImport()" class="btn-backup">📥 Importuj przepisy</button>
+                <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importRecipes(event)">
+            </div>
+        </div>
+
+        <!-- WIDOK 2: FORMULARZ DODAWANIA -->
+        <div id="viewAdd" class="app-view hidden">
+            <section class="form-section">
+                <h2>Dodaj nowy przepis</h2>
+                <form id="recipeForm">
+                    <input type="text" id="recipeName" placeholder="Nazwa potrawy (np. Omlet)" required>
+                    
+                    <select id="recipeCategory" required>
+                        <option value="">-- Wybierz kategorię --</option>
+                        <option value="śniadanie">Śniadanie</option>
+                        <option value="obiad">Obiad</option>
+                        <option value="kolacja">Kolacja</option>
+                        <option value="przekąska">Przekąska</option>
+                    </select>
+
+                    <!-- DYNAMICZNA LISTA SKŁADNIKÓW -->
+                    <div class="ingredients-form-section">
+                        <label>Składniki:</label>
+                        <div id="ingredientsInputList">
+                            <!-- Tu JS będzie dodawał rzędy na składniki -->
+                        </div>
+                        <button type="button" onclick="addIngredientRow()" class="btn-add-ing">+ Dodaj składnik</button>
+                    </div>
+
+                    <textarea id="recipeDescription" placeholder="Opis przygotowania krok po kroku..." rows="4" required></textarea>
+                    
+                    <button type="submit" class="btn-submit">Zapisz przepis</button>
+                </form>
+            </section>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

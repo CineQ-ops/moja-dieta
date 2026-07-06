@@ -1,0 +1,253 @@
+/* RESETOWANIE DOMYŚLNYCH STYLÓW */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #4a5568;
+}
+
+/* MENU NAWIGACYJNE */
+.app-nav {
+    display: flex;
+    background-color: #f1f5f9;
+    padding: 4px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.nav-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.nav-btn.active {
+    background-color: #ffffff;
+    color: #2563eb;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* WYSZUKIWARKA */
+.search-section {
+    margin-bottom: 20px;
+}
+
+#searchBar {
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+}
+
+/* UKRYWANIE WIDOKÓW */
+.app-view {
+    display: block;
+}
+
+.app-view.hidden {
+    display: none;
+}
+
+/* FORMULARZ */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #f8fafc;
+    transition: all 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* DYNAMICZNE SKŁADNIKI W FORMULARZU */
+.ingredients-form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.ingredients-form-section label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.ingredient-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.ingredient-row .ing-name {
+    flex: 2;
+}
+
+.ingredient-row .ing-weight {
+    flex: 1;
+}
+
+.btn-remove-ing {
+    background: none;
+    border: none;
+    color: #ef4444;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.btn-add-ing {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px dashed #cbd5e1;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-submit {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* KARTY Z PRZEPISAMI */
+#recipesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.recipe-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.recipe-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge {
+    font-size: 12px;
+    background-color: #e0f2fe;
+    color: #0369a1;
+    padding: 4px 8px;
+    border-radius: 20px;
+    text-transform: capitalize;
+}
+
+.recipe-card p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    color: #4a5568;
+}
+
+.recipe-card ul {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #4a5568;
+}
+
+/* KONTENER NA PRZYCISKI W KARCIE */
+.recipe-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-delete, .btn-edit {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-delete { background-color: #fee2e2; color: #ef4444; }
+.btn-edit { background-color: #dbeafe; color: #2563eb; }
+
+/* IMPORT / EKSPORT NA DOLE */
+.backup-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 20px;
+}
+
+.btn-backup {
+    flex: 1;
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    color: #475569;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
