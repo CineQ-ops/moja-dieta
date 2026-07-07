@@ -23,316 +23,105 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-h1 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: #1a1a1a;
-}
-
-h2 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: #4a5568;
-}
+h1 { text-align: center; font-size: 24px; margin-bottom: 15px; color: #1a1a1a; }
+h2 { font-size: 18px; margin-bottom: 15px; color: #4a5568; }
 
 /* MENU NAWIGACYJNE */
-.app-nav {
-    display: flex;
-    background-color: #f1f5f9;
-    padding: 4px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.nav-btn {
-    flex: 1;
-    background: none;
-    border: none;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: 600;
-    color: #64748b;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.2s;
-}
-
-.nav-btn.active {
-    background-color: #ffffff;
-    color: #2563eb;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-}
+.app-nav { display: flex; background-color: #f1f5f9; padding: 4px; border-radius: 10px; margin-bottom: 20px; }
+.nav-btn { flex: 1; background: none; border: none; padding: 10px; font-size: 15px; font-weight: 600; color: #64748b; cursor: pointer; border-radius: 8px; transition: all 0.2s; }
+.nav-btn.active { background-color: #ffffff; color: #2563eb; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); }
 
 /* WYSZUKIWARKA */
-.search-section {
-    margin-bottom: 20px;
-}
-
-#searchBar {
-    background-color: #f1f5f9;
-    border: 1px solid #e2e8f0;
-}
+.search-section { margin-bottom: 20px; }
+#searchBar { background-color: #f1f5f9; border: 1px solid #e2e8f0; }
 
 /* UKRYWANIE WIDOKÓW */
-.app-view {
+.app-view { display: block; }
+.app-view.hidden { display: none; }
+
+/* FORMULARZ */
+form { display: flex; flex-direction: column; gap: 12px; }
+input, select, textarea { width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 15px; background-color: #f8fafc; transition: all 0.2s; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: #3b82f6; background-color: #fff; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+
+/* DYNAMICZNE SKŁADNIKI */
+.ingredients-form-section { display: flex; flex-direction: column; gap: 8px; margin-bottom: 5px; }
+.ingredients-form-section label { font-weight: 600; font-size: 14px; color: #4a5568; }
+.ingredient-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; background-color: #f8fafc; border: 1px solid #f1f5f9; padding: 10px; border-radius: 10px; margin-bottom: 4px; }
+.ingredient-row .ing-name { flex: 2; min-width: 130px; padding: 8px; }
+.ingredient-row .ing-weight { flex: 1; min-width: 70px; padding: 8px; }
+.makro-inputs { display: flex; gap: 4px; width: 100%; margin-top: 4px; }
+.makro-inputs input { flex: 1; padding: 6px; font-size: 12px; text-align: center; border-radius: 6px; background-color: #ffffff; }
+.btn-remove-ing { background: none; border: none; color: #ef4444; font-size: 22px; cursor: pointer; padding: 0 4px; margin-left: auto; }
+.btn-add-ing { background-color: #f1f5f9; color: #475569; border: 1px dashed #cbd5e1; padding: 10px; border-radius: 8px; cursor: pointer; font-weight: 500; margin-top: 4px; }
+.btn-submit { background-color: #2563eb; color: white; border: none; padding: 14px; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; }
+
+/* KARTY Z PRZEPISAMI */
+#recipesContainer { display: flex; flex-direction: column; gap: 15px; }
+.recipe-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; }
+.recipe-header { display: flex; flex-direction: column; margin-bottom: 12px; }
+.recipe-card h3 { font-size: 18px; color: #1a1a1a; display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+.badge { font-size: 12px; background-color: #e0f2fe; color: #0369a1; padding: 4px 8px; border-radius: 20px; text-transform: capitalize; }
+.tag-label { font-size: 12px; color: #059669; background: #d1fae5; padding: 2px 8px; border-radius: 10px; display: inline-block; align-self: flex-start; }
+.tips-section {
+    background: #fff3cd;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #ffc107;
+    margin: 15px 0;
+    font-size: 14px;
+    color: #856404;
+    line-height: 1.3; /* Zmniejszony odstęp między liniami tekstu */
+}
+
+/* Odstęp między punktami we wskazówkach */
+.tips-section br {
+    display: block;
+    content: "";
+    margin-top: 18px;
+}
+
+/* LISTA SKŁADNIKÓW - JEDEN POD DRUGIM */
+.ingredients-list { 
+    margin: 10px 0 10px 20px; 
+    padding: 0; 
+    list-style-type: disc; 
+    display: block; 
+}
+.ingredients-list li { 
+    display: list-item; 
+    margin-bottom: 8px; 
+    font-size: 14px; 
+    color: #4a5568; 
+}
+
+/* PODSUMOWANIE MAKRO */
+.recipe-total-makro { display: flex; gap: 8px; margin-bottom: 15px; background: #ffffff; padding: 8px; border-radius: 10px; border: 1px solid #f1f5f9; }
+.makro-badge { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #f8fafc; padding: 6px 4px; border-radius: 6px; }
+.makro-badge strong { font-size: 13px; color: #1e293b; }
+.makro-badge span { font-size: 9px; color: #94a3b8; text-transform: uppercase; margin-top: 1px; }
+.makro-detail-label { font-size: 11px; color: #94a3b8; display: inline-block; margin-bottom: 4px; }
+.recipe-card p {
+    font-size: 14px; 
+    line-height: 1.3; /* Zmniejszamy odstęp wewnątrz akapitu (było 1.6/1.8) */
+    color: #4a5568; 
+    white-space: pre-line !important; 
     display: block;
 }
 
-.app-view.hidden {
-    display: none;
+/* To sprawi, że każda "nowa linia" (stworzona przez <br>) 
+   będzie miała dodatkowy margines na dole */
+.recipe-card p br {
+    display: block;
+    content: "";
+    margin-top: 18px; /* To jest ten odstęp MIĘDZY punktami */
 }
 
-/* FORMULARZ */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    font-size: 15px;
-    background-color: #f8fafc;
-    transition: all 0.2s;
-}
-
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: #3b82f6;
-    background-color: #fff;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-
-/* DYNAMICZNE SKŁADNIKI W FORMULARZU */
-.ingredients-form-section {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 5px;
-}
-
-.ingredients-form-section label {
-    font-weight: 600;
-    font-size: 14px;
-    color: #4a5568;
-}
-
-/* Zaktualizowany wiersz składnika (teraz przyjmuje formę bloku z wewnętrznym układem) */
-.ingredient-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    align-items: center;
-    background-color: #f8fafc;
-    border: 1px solid #f1f5f9;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 4px;
-}
-
-.ingredient-row .ing-name {
-    flex: 2;
-    min-width: 130px;
-    padding: 8px;
-}
-
-.ingredient-row .ing-weight {
-    flex: 1;
-    min-width: 70px;
-    padding: 8px;
-}
-
-/* Kontener na 4 małe inputy makro */
-.makro-inputs {
-    display: flex;
-    gap: 4px;
-    width: 100%;
-    margin-top: 4px;
-}
-
-.makro-inputs input {
-    flex: 1;
-    padding: 6px;
-    font-size: 12px;
-    text-align: center;
-    border-radius: 6px;
-    background-color: #ffffff;
-}
-
-.btn-remove-ing {
-    background: none;
-    border: none;
-    color: #ef4444;
-    font-size: 22px;
-    cursor: pointer;
-    padding: 0 4px;
-    margin-left: auto;
-}
-
-.btn-add-ing {
-    background-color: #f1f5f9;
-    color: #475569;
-    border: 1px dashed #cbd5e1;
-    padding: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 500;
-    margin-top: 4px;
-}
-
-.btn-submit {
-    background-color: #2563eb;
-    color: white;
-    border: none;
-    padding: 14px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-/* KARTY Z PRZEPISAMI */
-#recipesContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.recipe-card {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 16px;
-}
-
-.recipe-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-}
-
-.recipe-card h3 {
-    font-size: 18px;
-    color: #1a1a1a;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.badge {
-    font-size: 12px;
-    background-color: #e0f2fe;
-    color: #0369a1;
-    padding: 4px 8px;
-    border-radius: 20px;
-    text-transform: capitalize;
-}
-
-/* PODSUMOWANIE MAKRO CAŁEGO PRZEPISU (STYL APKI DIETETYCZNEJ) */
-.recipe-total-makro {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 15px;
-    background: #ffffff;
-    padding: 8px;
-    border-radius: 10px;
-    border: 1px solid #f1f5f9;
-}
-
-.makro-badge {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #f8fafc;
-    padding: 6px 4px;
-    border-radius: 6px;
-}
-
-.makro-badge strong {
-    font-size: 13px;
-    color: #1e293b;
-}
-
-.makro-badge span {
-    font-size: 9px;
-    color: #94a3b8;
-    text-transform: uppercase;
-    margin-top: 1px;
-}
-
-/* Szary, delikatny opis makro pojedynczego składnika na liście */
-.makro-detail-label {
-    font-size: 11px;
-    color: #94a3b8;
-    display: inline-block;
-    margin-bottom: 4px;
-    font-weight: normal;
-}
-
-.recipe-card p {
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 10px;
-    color: #4a5568;
-}
-
-.recipe-card ul {
-    margin-left: 20px;
-    margin-bottom: 12px;
-    font-size: 14px;
-    color: #4a5568;
-}
-
-.recipe-card li {
-    margin-bottom: 6px;
-}
-
-/* KONTENER NA PRZYCISKI W KARCIE */
-.recipe-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.btn-delete, .btn-edit {
-    flex: 1;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    text-align: center;
-}
-
+.recipe-actions { display: flex; gap: 10px; margin-top: 10px; }
+.btn-delete, .btn-edit { flex: 1; border: none; padding: 10px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; text-align: center; }
 .btn-delete { background-color: #fee2e2; color: #ef4444; }
 .btn-edit { background-color: #dbeafe; color: #2563eb; }
 
-/* IMPORT / EKSPORT NA DOLE */
-.backup-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 30px;
-    border-top: 1px solid #e2e8f0;
-    padding-top: 20px;
-}
-
-.btn-backup {
-    flex: 1;
-    background-color: #f8fafc;
-    border: 1px solid #cbd5e1;
-    color: #475569;
-    padding: 12px;
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-}
+/* IMPORT / EKSPORT */
+.backup-actions { display: flex; gap: 10px; margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 20px; }
+.btn-backup { flex: 1; background-color: #f8fafc; border: 1px solid #cbd5e1; color: #475569; padding: 12px; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; }

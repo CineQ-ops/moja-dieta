@@ -14,13 +14,11 @@
     <div class="container">
         <h1>Moja Baza Przepisów</h1>
 
-        <!-- NAWIGACJA (MENU) -->
         <nav class="app-nav">
             <button id="navBrowse" class="nav-btn active" onclick="switchView('browse')">Przeglądaj</button>
             <button id="navAdd" class="nav-btn" onclick="switchView('add')">Dodaj nowy</button>
         </nav>
 
-        <!-- WIDOK 1: PRZEGLĄDANIE I WYSZUKIWANIE -->
         <div id="viewBrowse" class="app-view">
             <section class="search-section">
                 <input type="text" id="searchBar" placeholder="🔍 Wyszukaj przepis lub składnik..." oninput="displayRecipes()">
@@ -29,11 +27,9 @@
             <section class="list-section">
                 <h2>Twoje przepisy</h2>
                 <div id="recipesContainer">
-                    <!-- Tutaj JS wstrzykuje przepisy -->
-                </div>
+                    </div>
             </section>
 
-            <!-- SEKCOJA IMPORTU / EKSPORTU -->
             <div class="backup-actions">
                 <button onclick="exportRecipes()" class="btn-backup">📤 Eksportuj przepisy</button>
                 <button onclick="triggerImport()" class="btn-backup">📥 Importuj przepisy</button>
@@ -41,7 +37,6 @@
             </div>
         </div>
 
-        <!-- WIDOK 2: FORMULARZ DODAWANIA -->
         <div id="viewAdd" class="app-view hidden">
             <section class="form-section">
                 <h2>Dodaj nowy przepis</h2>
@@ -56,12 +51,13 @@
                         <option value="przekąska">Przekąska</option>
                     </select>
 
-                    <!-- DYNAMICZNA LISTA SKŁADNIKÓW -->
+                    <input type="text" id="recipeTag" placeholder="Tagi (np. Kanapki, tosty)">
+                    <textarea id="recipeTips" placeholder="Wskazówki i podpowiedzi" rows="2"></textarea>
+
                     <div class="ingredients-form-section">
                         <label>Składniki (makro opcjonalnie na 100g):</label>
                         <div id="ingredientsInputList">
-                            <!-- Tu JS będzie dodawał zaawansowane rzędy na składniki -->
-                        </div>
+                            </div>
                         <button type="button" onclick="addIngredientRow()" class="btn-add-ing">+ Dodaj składnik</button>
                     </div>
 
